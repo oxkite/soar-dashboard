@@ -1,0 +1,22 @@
+[
+  {
+    "txType": "Depoist from my Card",
+    "date": "27/01/2021",
+    "amount": -850
+  },
+  {
+    "txType": "Depoist Paypal",
+    "date": "25/01/2021",
+    "amount": 2500
+  },
+  {
+    "txType": "Jemi Wilson",
+    "date": "12/01/2021",
+    "amount": 5400
+  },
+  {
+    "txType": "Depoist Paypal",
+    "date": "15/01/2021",
+    "amount": 2500
+  }
+]
