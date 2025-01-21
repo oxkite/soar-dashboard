@@ -49,7 +49,7 @@ export default function SideBar() {
             <li>
               <SideBarItem
                 title="Dashboard"
-                link="/dashboard"
+                link="/overview"
                 icon={<img src={IconDashboard} alt="Dashboard Logo" />}
               />
             </li>

@@ -9,7 +9,6 @@ interface TransactionProps {
 }
 
 const AmountDisplay = ({ amount }: { amount: number }) => {
-  // Determine the style and symbol based on the number's value
   const isPositive = amount > 0;
   const displayNumber = isPositive ? `+$${amount.toLocaleString()}` : `-$${Math.abs(amount).toLocaleString()}`;
   const colorStyle = isPositive ? { color: '#FF4B4A' } : { color: '#41D4A8' };
