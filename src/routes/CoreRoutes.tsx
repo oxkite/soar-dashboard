@@ -1,6 +1,7 @@
 import { lazy } from 'react';
 import Loadable from '../third-party/Loadable';
 import Dashboard from '../pages/Dashboard';
+import Setting from '../pages/Setting';
 
 const DefaultLayout = Loadable(lazy(() => import('../layouts/DefaultLayout')));
 
@@ -9,14 +10,14 @@ const CoreRoutes = {
   element: <DefaultLayout />,
   children: [
     {
-      path: '/dashboard',
+      path: '/overview',
       title: 'Dashboard',
       element: <Dashboard />,
     },
     {
       path: '/transaction',
       title: 'Transaction',
-      element: <>trans</>,
+      element: <>Transaction</>,
     },
     {
       path: '/accounts',
@@ -51,7 +52,7 @@ const CoreRoutes = {
     {
       path: '/setting',
       title: 'Setting',
-      element: <>setting</>,
+      element: <Setting />,
     },
   ],
 };

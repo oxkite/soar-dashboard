@@ -1,12 +1,30 @@
+import clsx from 'clsx';
+import { useLocation } from 'react-router-dom';
+
 import avatar from '../assets/avatar.png';
 import settingImage from '../assets/settings 1.svg';
 import notifyImage from '../assets/002-notification-1.svg';
 
-export default function Header() {
+type headerPropsType = {
+  link: string;
+};
+
+const formatString = (input: string) => {
+  if (input.startsWith('/')) {
+    input = input.slice(1);
+  }
+  return input.charAt(0).toUpperCase() + input.slice(1);
+};
+
+export default function Header({ link }: headerPropsType) {
+  const location = useLocation();
+  const isActive = location.pathname == link;
   return (
     <div className="absolute flex justify-between items-center gap-3 min-w-full px-10 py-5 bg-white border-b border-b-[#E6EFF5]">
       <div>
-        <p className="text-[28px] text-[#343C6A] font-[600]">Overview</p>
+        <p className="text-[28px] text-[#343C6A] font-[600]">
+          {clsx(isActive ? formatString(link) : 'Overview')}
+        </p>
       </div>
       <div>
         <div className="flex items-center gap-4">
@@ -32,7 +50,7 @@ export default function Header() {
               <input
                 type="search"
                 id="default-search"
-                className="block w-full py-2 ps-10 text-[15px] focus:outline-none text-[#8BA3CB] border border-gray-300 rounded-[30px] bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="block w-full py-2 ps-10 text-[15px] focus:outline-none text-[#8BA3CB] border border-gray-300 rounded-[30px] bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 placeholder="Search for something"
                 required
               />
