@@ -36,7 +36,7 @@ const schema = {
     plotOptions: {
       bar: {
         columnWidth: '20%',
-        borderRadius: 6,
+        borderRadius: 4,
         dataLabels: {
           position: 'top',
           enabled: false,

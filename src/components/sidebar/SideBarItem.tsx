@@ -14,6 +14,7 @@ const SideBarItem = ({
   clickedIcon,
   title,
   link,
+  
 }: SideBarItemPropsType) => {
   const location = useLocation();
   const isActive = location.pathname == link;
@@ -32,7 +33,7 @@ const SideBarItem = ({
           {/* {icon} */}
           <span
             className={clsx(
-              'ms-2 font-[500] text-[18px] hidden xl:block',
+              'ms-2 font-[500] text-[18px] block md:hidden lg:hidden xl:block sm:hidden xs:block',
               isActive ? 'text-black' : 'text-gray-500'
             )}
           >
