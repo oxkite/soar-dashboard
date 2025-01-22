@@ -7,13 +7,13 @@ const DefaultLayout = () => {
   const location = useLocation();
 
   return (
-    <div className="flex flex-column overflow-y-auto w-full bg-boxdark-2 text-bodydark">
+    <div className="flex flex-column overflow-y-auto w-full min-w-[320px] bg-boxdark-2 text-bodydark">
       <SideBar />
       <div className="relative w-full bg-[#F5F7FA] justify-center">
         <Header link={location.pathname} />
 
         <div className="flex bg-[#f5f7fa] h-screen w-full justify-center overflow-auto ">
-          <div className="flex w-full max-w-[1440px] pt-28 p-6">
+          <div className="flex w-full max-w-[1440px] sm:pt-28 pt-40 p-6">
             <Outlet />
           </div>
         </div>

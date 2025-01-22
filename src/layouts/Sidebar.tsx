@@ -10,6 +10,8 @@ import IconLoans from '../assets/loan 1.svg';
 import IconServices from '../assets/service 1.svg';
 import IconPriviledges from '../assets/Privileges.svg';
 import IconSettings from '../assets/service 1.svg';
+import ClickIconDashboard from '../assets/clickedHome 2.svg';
+import ClickIconSetting from '../assets/clickedSetting.svg';
 
 export default function SideBar() {
   return (
@@ -37,7 +39,7 @@ export default function SideBar() {
         </svg>
       </button> */}
 
-      <div className="xl:w-64 w-20 h-screen transition-transform -translate-x-full sm:translate-x-0 ">
+      <div className="xl:w-64 sm:w-20 w-0 h-screen transition-transform -translate-x-full sm:translate-x-0 ">
         <div className="h-full py-8 overflow-y-auto dark:bg-gray-800">
           <div className="flex items-center justify-center pb-10">
             <img src={LogoSoar} alt="Sora Logo" />
@@ -51,6 +53,9 @@ export default function SideBar() {
                 title="Dashboard"
                 link="/overview"
                 icon={<img src={IconDashboard} alt="Dashboard Logo" />}
+                clickedIcon={
+                  <img src={ClickIconDashboard} alt="Dashboard Logo" />
+                }
               />
             </li>
             <li>
@@ -58,6 +63,9 @@ export default function SideBar() {
                 title="Transactions"
                 link="/transaction"
                 icon={<img src={IconTransactions} alt="Transactions Logo" />}
+                clickedIcon={
+                  <img src={IconTransactions} alt="Transactions Logo" />
+                }
               />
             </li>
             <li>
@@ -65,6 +73,7 @@ export default function SideBar() {
                 title="Accounts"
                 link="/accounts"
                 icon={<img src={IconAccounts} alt="Accounts Logo" />}
+                clickedIcon={<img src={IconAccounts} alt="Accounts Logo" />}
               />
             </li>
             <li>
@@ -72,6 +81,7 @@ export default function SideBar() {
                 title="Investments"
                 link="/investments"
                 icon={<img src={IconInvestments} alt="Accounts Logo" />}
+                clickedIcon={<img src={IconInvestments} alt="Accounts Logo" />}
               />
             </li>
             <li>
@@ -79,6 +89,7 @@ export default function SideBar() {
                 title="Credit Cards"
                 link="/credit-cards"
                 icon={<img src={IconCreditCards} alt="Accounts Logo" />}
+                clickedIcon={<img src={IconCreditCards} alt="Accounts Logo" />}
               />
             </li>
             <li>
@@ -86,6 +97,7 @@ export default function SideBar() {
                 title="Loans"
                 link="/loans"
                 icon={<img src={IconLoans} alt="Accounts Logo" />}
+                clickedIcon={<img src={IconLoans} alt="Accounts Logo" />}
               />
             </li>
             <li>
@@ -93,6 +105,7 @@ export default function SideBar() {
                 title="Services"
                 link="/services"
                 icon={<img src={IconServices} alt="Accounts Logo" />}
+                clickedIcon={<img src={IconServices} alt="Accounts Logo" />}
               />
             </li>
             <li>
@@ -100,6 +113,7 @@ export default function SideBar() {
                 title="My Priviledges"
                 link="/privileges"
                 icon={<img src={IconPriviledges} alt="Accounts Logo" />}
+                clickedIcon={<img src={IconPriviledges} alt="Accounts Logo" />}
               />
             </li>
             <li>
@@ -107,6 +121,7 @@ export default function SideBar() {
                 title="Setting"
                 link="/setting"
                 icon={<img src={IconSettings} alt="Accounts Logo" />}
+                clickedIcon={<img src={ClickIconSetting} alt="Accounts Logo" />}
               />
             </li>
           </ul>
