@@ -4,17 +4,16 @@ import { useRef, useEffect } from 'react';
 
 import SideBarItem from '../components/sidebar/SideBarItem';
 import LogoSoar from '../assets/mingcute_task-fill.svg';
-import IconDashboard from '../assets/home 2.svg';
-import IconTransactions from '../assets/tx.svg';
-import IconAccounts from '../assets/user 3 1.svg';
-import IconInvestments from '../assets/Group.svg';
+import IconDashboard from '../assets/home.svg';
+import IconTransactions from '../assets/transaction.svg';
+import IconAccounts from '../assets/user.svg';
+import IconInvestments from '../assets/investment.svg';
 import IconCreditCards from '../assets/credit-card 1.svg';
-import IconLoans from '../assets/loan 1.svg';
-import IconServices from '../assets/service 1.svg';
+import IconLoans from '../assets/loan.svg';
+import IconServices from '../assets/service.svg';
 import IconPriviledges from '../assets/Privileges.svg';
-import IconSettings from '../assets/service 1.svg';
-import ClickIconDashboard from '../assets/clickedHome 2.svg';
-import ClickIconSetting from '../assets/clickedSetting.svg';
+import IconSettings from '../assets/settings.svg';
+
 
 interface SidebarProps {
   isOpen: boolean;
@@ -52,7 +51,6 @@ export default function SideBar({ isOpen, onClose }: SidebarProps) {
             title="Dashboard"
             link="/overview"
             icon={<img src={IconDashboard} alt="Dashboard Logo" />}
-            clickedIcon={<img src={ClickIconDashboard} alt="Dashboard Logo" />}
           />
         </li>
         <li onClick={onClose}>
@@ -60,7 +58,6 @@ export default function SideBar({ isOpen, onClose }: SidebarProps) {
             title="Transactions"
             link="/transaction"
             icon={<img src={IconTransactions} alt="Transactions Logo" />}
-            clickedIcon={<img src={IconTransactions} alt="Transactions Logo" />}
           />
         </li>
         <li onClick={onClose}>
@@ -68,7 +65,6 @@ export default function SideBar({ isOpen, onClose }: SidebarProps) {
             title="Accounts"
             link="/accounts"
             icon={<img src={IconAccounts} alt="Accounts Logo" />}
-            clickedIcon={<img src={IconAccounts} alt="Accounts Logo" />}
           />
         </li>
         <li onClick={onClose}>
@@ -76,7 +72,6 @@ export default function SideBar({ isOpen, onClose }: SidebarProps) {
             title="Investments"
             link="/investments"
             icon={<img src={IconInvestments} alt="Accounts Logo" />}
-            clickedIcon={<img src={IconInvestments} alt="Accounts Logo" />}
           />
         </li>
         <li onClick={onClose}>
@@ -84,7 +79,6 @@ export default function SideBar({ isOpen, onClose }: SidebarProps) {
             title="Credit Cards"
             link="/credit-cards"
             icon={<img src={IconCreditCards} alt="Accounts Logo" />}
-            clickedIcon={<img src={IconCreditCards} alt="Accounts Logo" />}
           />
         </li>
         <li onClick={onClose}>
@@ -92,7 +86,6 @@ export default function SideBar({ isOpen, onClose }: SidebarProps) {
             title="Loans"
             link="/loans"
             icon={<img src={IconLoans} alt="Accounts Logo" />}
-            clickedIcon={<img src={IconLoans} alt="Accounts Logo" />}
           />
         </li>
         <li onClick={onClose}>
@@ -100,7 +93,6 @@ export default function SideBar({ isOpen, onClose }: SidebarProps) {
             title="Services"
             link="/services"
             icon={<img src={IconServices} alt="Accounts Logo" />}
-            clickedIcon={<img src={IconServices} alt="Accounts Logo" />}
           />
         </li>
         <li onClick={onClose}>
@@ -108,7 +100,6 @@ export default function SideBar({ isOpen, onClose }: SidebarProps) {
             title="My Priviledges"
             link="/privileges"
             icon={<img src={IconPriviledges} alt="Accounts Logo" />}
-            clickedIcon={<img src={IconPriviledges} alt="Accounts Logo" />}
           />
         </li>
         <li onClick={onClose}>
@@ -116,7 +107,6 @@ export default function SideBar({ isOpen, onClose }: SidebarProps) {
             title="Setting"
             link="/setting"
             icon={<img src={IconSettings} alt="Accounts Logo" />}
-            clickedIcon={<img src={ClickIconSetting} alt="Accounts Logo" />}
           />
         </li>
       </ul>
