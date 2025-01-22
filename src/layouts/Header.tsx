@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 import avatar from '../assets/avatar.png';
 import SettingImage from '../assets/settings 1.svg';
-import NotifyImage from '../assets/002-notification-1.svg';
+import NotifyImage from '../assets/notification.svg';
 import MenuImage from '../assets/menu.svg';
 
 type headerPropsType = {

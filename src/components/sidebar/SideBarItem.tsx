@@ -4,14 +4,12 @@ import { Link, useLocation } from 'react-router-dom';
 
 type SideBarItemPropsType = {
   icon: React.ReactNode;
-  clickedIcon: React.ReactNode;
   title: string;
   link: string;
 };
 
 const SideBarItem = ({
   icon,
-  clickedIcon,
   title,
   link,
   
@@ -28,9 +26,9 @@ const SideBarItem = ({
         to={link}
       >
         <div className="flex items-center p-3 pl-6 xl:pl-12">
-          {isActive && clickedIcon}
-          {!isActive && icon}
-          {/* {icon} */}
+          <div className={clsx(isActive ? 'opacity-100' : 'opacity-50')}>
+            {icon}
+          </div>
           <span
             className={clsx(
               'ms-2 font-[500] text-[18px] block md:hidden lg:hidden xl:block sm:hidden xs:block',
