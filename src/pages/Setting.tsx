@@ -41,10 +41,11 @@ export default function Setting() {
   const [activeTab, setActiveTab] = useState('edit');
 
   return (
-    <div className="w-full h-100vh  my-4 bg-white rounded-3xl">
+    <div aria-label='Setting page' className="w-full h-100vh  my-4 bg-white rounded-3xl">
       <div className="border-b border-gray-200 px-6 pt-4">
         <nav className="-mb-px flex gap-6 text-[16px] font-[500]">
           <button
+            aria-label="Edit profile"
             onClick={() => setActiveTab('edit')}
             className={`py-4 px-1 border-b-2 font-medium text-sm ${
               activeTab === 'edit'
@@ -55,6 +56,7 @@ export default function Setting() {
             Edit Profile
           </button>
           <button
+            aria-label="Preferences"
             onClick={() => setActiveTab('preferences')}
             className={`py-4 px-1 border-b-2 font-medium text-sm ${
               activeTab === 'preferences'
@@ -65,6 +67,7 @@ export default function Setting() {
             Preferences
           </button>
           <button
+            aria-label="Security"
             onClick={() => setActiveTab('security')}
             className={`py-4 px-1 border-b-2 font-medium text-sm ${
               activeTab === 'security'
@@ -146,13 +149,14 @@ function EditProfile() {
     <div className="bg-white rounded-3xl px-10">
       <div className="md:flex space-y-6 gap-8 p-4 h-full">
         <div className="flex justify-center gap-4 py-6">
-            <img
-              className=" rounded-full sm:w-[90px] h-[90px] object-cover"
-              src={image}
-              alt="Rounded avatar"
-            />
+          <img
+            className=" rounded-full sm:w-[90px] h-[90px] object-cover"
+            src={image}
+            alt="Rounded avatar"
+          />
           <div className="relative">
             <button
+            aria-label='Edit image'
               onClick={handleEditClick}
               className="absolute md:bottom-0 top-14 right-2 w-[30px] h-[30px] bg-black items-center flex justify-center rounded-full"
             >
@@ -166,6 +170,7 @@ function EditProfile() {
             <input
               ref={fileInputRef}
               type="file"
+              aria-label="Avatar upload"
               accept="image/*"
               className="hidden !w-[15px] !h-[15px]"
               onChange={handleFileSelect}
@@ -181,6 +186,7 @@ function EditProfile() {
             </label>
             <input
               type="text"
+              aria-label="Input name"
               className="block w-full py-2 px-4 text-[15px] font-[400] focus:outline-none text-[#718EBF] border border-gray-300 rounded-2xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
               value={profileData.name}
               onChange={(e) =>
@@ -195,6 +201,7 @@ function EditProfile() {
             </label>
             <input
               type="text"
+              aria-label="Input username"
               className="block w-full py-2 px-4 text-[15px] font-[400] focus:outline-none text-[#718EBF] border border-gray-300 rounded-2xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
               value={profileData.userName}
               onChange={(e) =>
@@ -209,6 +216,7 @@ function EditProfile() {
             </label>
             <input
               type="email"
+              aria-label="Input email"
               className="block w-full py-2 px-4 text-[15px] font-[400] focus:outline-none text-[#718EBF] border border-gray-300 rounded-2xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
               value={profileData.email}
               onChange={(e) =>
@@ -223,6 +231,7 @@ function EditProfile() {
             </label>
             <input
               type="password"
+              aria-label="Input password"
               className="block w-full py-2 px-4 text-[15px] font-[400] focus:outline-none text-[#718EBF] border border-gray-300 rounded-2xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
               value={profileData.password}
               onChange={(e) =>
@@ -237,6 +246,7 @@ function EditProfile() {
             </label>
             <input
               type="text"
+              aria-label="Input birth"
               className="block w-full py-2 px-4 text-[15px] font-[400] focus:outline-none text-[#718EBF] border border-gray-300 rounded-2xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
               value={profileData.dateOfBirth}
               onChange={(e) =>
@@ -251,6 +261,7 @@ function EditProfile() {
             </label>
             <input
               type="text"
+              aria-label="Input address"
               className="block w-full py-2 px-4 text-[15px] font-[400] focus:outline-none text-[#718EBF] border border-gray-300 rounded-2xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
               value={profileData.presentAddress}
               onChange={(e) =>
@@ -268,6 +279,7 @@ function EditProfile() {
             </label>
             <input
               type="text"
+              aria-label="Input permanent address"
               className="block w-full py-2 px-4 text-[15px] font-[400] focus:outline-none text-[#718EBF] border border-gray-300 rounded-2xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
               value={profileData.permanentAddress}
               onChange={(e) =>
@@ -285,6 +297,7 @@ function EditProfile() {
             </label>
             <input
               type="text"
+              aria-label="Input city"
               className="block w-full py-2 px-4 text-[15px] font-[400] focus:outline-none text-[#718EBF] border border-gray-300 rounded-2xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
               value={profileData.city}
               onChange={(e) =>
@@ -299,6 +312,7 @@ function EditProfile() {
             </label>
             <input
               type="text"
+              aria-label="Input code"
               className="block w-full py-2 px-4 text-[15px] font-[400] focus:outline-none text-[#718EBF] border border-gray-300 rounded-2xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
               value={profileData.postalCode}
               onChange={(e) =>
@@ -313,6 +327,7 @@ function EditProfile() {
             </label>
             <input
               type="text"
+              aria-label="Input country"
               className="block w-full py-2 px-4 text-[15px] font-[400] focus:outline-none text-[#718EBF] border border-gray-300 rounded-2xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
               value={profileData.country}
               onChange={(e) =>
@@ -324,6 +339,7 @@ function EditProfile() {
       </div>
       <div className="flex justify-end p-4">
         <button
+        aria-label='Save info'
           onClick={handleInputChange}
           className="mt-6 w-full md:w-[190px] px-4 py-2 bg-[#232323] text-white rounded-xl hover:bg-gray-800 focus:bg-[#0e0d0d]"
         >

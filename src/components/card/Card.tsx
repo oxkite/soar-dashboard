@@ -24,6 +24,7 @@ export default function Card({
 }: CardProps) {
   return (
     <div
+    aria-label='Card component'
       className={`${
         isColorWhite
           ? 'bg-white'
