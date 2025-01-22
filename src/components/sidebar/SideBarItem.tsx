@@ -4,24 +4,32 @@ import { Link, useLocation } from 'react-router-dom';
 
 type SideBarItemPropsType = {
   icon: React.ReactNode;
+  clickedIcon: React.ReactNode;
   title: string;
   link: string;
-}
+};
 
-const SideBarItem = ({icon, title, link}: SideBarItemPropsType) => {
+const SideBarItem = ({
+  icon,
+  clickedIcon,
+  title,
+  link,
+}: SideBarItemPropsType) => {
   const location = useLocation();
   const isActive = location.pathname == link;
   return (
     <div className="relative w-full h-full hover:bg-gray-100 dark:hover:bg-gray-700 py-1">
       {isActive && (
-        <div className="absolute -top-1 left-0 w-2 h-16 bg-[#232323] rounded-e-md border-tl-none"></div>
+        <div className="absolute top-[-3px] left-0 w-2 h-16 bg-[#232323] rounded-e-md border-tl-none"></div>
       )}
-        <Link
-          className="flex items-center text-gray-900 rounded-lg dark:text-white gap-3"
-          to={link}
-        >
-      <div className="flex items-center p-3 pl-6 xl:pl-12">
-          {icon}
+      <Link
+        className="flex items-center text-gray-900 rounded-lg dark:text-white gap-3"
+        to={link}
+      >
+        <div className="flex items-center p-3 pl-6 xl:pl-12">
+          {isActive && clickedIcon}
+          {!isActive && icon}
+          {/* {icon} */}
           <span
             className={clsx(
               'ms-2 font-[500] text-[18px] hidden xl:block',
@@ -30,9 +38,9 @@ const SideBarItem = ({icon, title, link}: SideBarItemPropsType) => {
           >
             {title}
           </span>
-      </div>
-        </Link>
+        </div>
+      </Link>
     </div>
   );
-}
+};
 export default SideBarItem;
