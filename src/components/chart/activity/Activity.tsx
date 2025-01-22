@@ -1,4 +1,4 @@
-import WeeklyActivity from '../../../data/activity.json';
+import { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts';
 
 const getDaysFromToday = () => {
@@ -14,52 +14,71 @@ const getDaysFromToday = () => {
   return daysFromToday;
 };
 const daysOfWeek = getDaysFromToday();
-const WeeklyActivityTransactions = WeeklyActivity.slice(0, 7);
-
-const schema = {
-  options: {
-    chart: {
-      id: 'basic-bar',
-    },
-    xaxis: {
-      categories: [
-        daysOfWeek[1],
-        daysOfWeek[2],
-        daysOfWeek[3],
-        daysOfWeek[4],
-        daysOfWeek[5],
-        daysOfWeek[6],
-        daysOfWeek[0],
-      ],
-    },
-    colors: ['#232323', '#396AFF'],
-    plotOptions: {
-      bar: {
-        columnWidth: '20%',
-        borderRadius: 4,
-        dataLabels: {
-          position: 'top',
-          enabled: false,
-        },
-      },
-    },
-    dataLabels: {
-      enabled: false,
-    },
-  },
-  series: [
-    {
-      name: 'deposit',
-      data: WeeklyActivityTransactions.map((tx: any) => tx.deposit),
-    },
-    {
-      name: 'withdraw',
-      data: WeeklyActivityTransactions.map((tx: any) => tx.withdraw),
-    },
-  ],
-};
 
 export default function Activity() {
+  const [activityData, setActivityData] = useState([]);
+  useEffect(() => {
+    const fetchActivityData = async () => {
+      try {
+        const response = await fetch('/api/activities');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        console.log('Data is here', data);
+        setActivityData(data.activities); // Set the activity data
+      } catch (error) {
+        console.log('Error!!!!');
+      } finally {
+      }
+    };
+
+    fetchActivityData();
+  }, []);
+
+  const schema = {
+    options: {
+      chart: {
+        id: 'basic-bar',
+      },
+      xaxis: {
+        categories: [
+          daysOfWeek[1],
+          daysOfWeek[2],
+          daysOfWeek[3],
+          daysOfWeek[4],
+          daysOfWeek[5],
+          daysOfWeek[6],
+          daysOfWeek[0],
+        ],
+      },
+      colors: ['#232323', '#396AFF'],
+      plotOptions: {
+        bar: {
+          columnWidth: '20%',
+          borderRadius: 4,
+          dataLabels: {
+            position: 'top',
+            enabled: false,
+          },
+        },
+      },
+      dataLabels: {
+        enabled: false,
+      },
+    },
+    series: [
+      {
+        name: 'deposit',
+        data: activityData.slice(0, 7).map((tx: any) => tx.deposit),
+      },
+      {
+        name: 'withdraw',
+        data: activityData.slice(0, 7).map((tx: any) => tx.withdraw),
+      },
+    ],
+  };
+
   return (
     <div>
       <Chart

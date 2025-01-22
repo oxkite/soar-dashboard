@@ -1,26 +1,50 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import SendImage from '../../assets/send.svg';
-import Members from '../../data/members.json';
 import NextButtonImage from '../../assets/next.svg';
 
 export default function QuickTransfer() {
   const [startIndex, setStartIndex] = useState(0);
+  const [memberData, setMemberData] = useState([]);
+  useEffect(() => {
+    const fetchMemberData = async () => {
+      try {
+        const response = await fetch('/api/members');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setMemberData(data.members); // Set the activity data
+      } catch (error) {
+        console.log('Error!!!!', error);
+      } finally {
+      }
+    };
+
+    fetchMemberData();
+  }, []);
   const handleNext = () => {
-    setStartIndex((prev) => (prev + 1) % Members.length);
+    setStartIndex((prev) => (prev + 1) % memberData.length);
   };
-  const visibleProfiles = [
-    Members[startIndex % Members.length],
-    Members[(startIndex + 1) % Members.length],
-    Members[(startIndex + 2) % Members.length],
-  ];
+  const visibleProfiles =
+    memberData.length > 0
+      ? [
+          memberData[startIndex % memberData.length],
+          memberData[(startIndex + 1) % memberData.length],
+          memberData[(startIndex + 2) % memberData.length],
+        ]
+      : [];
+
   return (
-    <div aria-label='Transfer money' className="p-4 flex flex-col justify-between gap-6 h-[235px]">
+    <div
+      aria-label="Transfer money"
+      className="p-4 flex flex-col justify-between gap-6 h-[235px]"
+    >
       <div className="flex justify-between items-center gap-4">
         <div className="overflow-hidden">
           <div className="grid grid-cols-3 gap-6 transition-transform duration-300 ease-in-out">
-            {visibleProfiles.map((members) => (
-              <div key={members.id} className="items-center text-center">
+            {visibleProfiles.map((members: any) => (
+              <div className="items-center text-center">
                 <div className="flex justify-center">
                   <img
                     className="rounded-full"
