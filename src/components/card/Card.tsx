@@ -28,7 +28,7 @@ export default function Card({
         isColorWhite
           ? 'bg-white'
           : 'bg-gradient-to-tr from-[#5B5A6F] to-[#030303] text-white'
-      } flex flex-col gap-2 border border-[#DFEAF2] rounded-[30px] w-full p-0 font-[Lato]`}
+      } flex flex-col xl:gap-4 gap-2 border border-[#DFEAF2] rounded-[30px] w-full p-0 font-[Lato] min-w-[310px] `}
     >
       <div className="flex justify-between p-6">
         <div className="text-start">
@@ -41,7 +41,7 @@ export default function Card({
           <img src={cardChipImage} alt="chip" />
         )}
       </div>
-      <div className="grid grid-cols-2 text-start p-6">
+      <div className="grid grid-cols-2 text-start px-6 py-2">
         <div>
           <p className="text-[12px] font-[400]">CARD HOLDER</p>
           <p className="text-[15px] font-[600]">{cardName}</p>

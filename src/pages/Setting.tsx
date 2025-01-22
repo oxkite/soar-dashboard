@@ -9,8 +9,8 @@ export default function Setting() {
   const [activeTab, setActiveTab] = useState('edit');
 
   return (
-    <div className="w-full p-6 bg-white rounded-3xl mt-4">
-      <div className="border-b border-gray-200">
+    <div className="w-full h-100vh  my-4 bg-white rounded-3xl">
+      <div className="border-b border-gray-200 px-6 pt-4">
         <nav className="-mb-px flex gap-6 text-[16px] font-[500]">
           <button
             onClick={() => setActiveTab('edit')}
@@ -45,7 +45,7 @@ export default function Setting() {
         </nav>
       </div>
 
-      <div className="mt-6">
+      <div className="mt-6 ">
         {activeTab === 'edit' && <EditProfile />}
         {activeTab === 'preferences' && <Preferences />}
         {activeTab === 'security' && <Security />}
@@ -56,9 +56,9 @@ export default function Setting() {
 
 function EditProfile() {
   return (
-    <>
-      <div className="flex space-y-6 gap-8 p-4">
-        <div className=" gap-4 py-6">
+    <div className="bg-white rounded-3xl px-4">
+      <div className="md:flex space-y-6 gap-8 p-4 h-full">
+        <div className="flex justify-center gap-4 py-6">
           <div className="relative">
             <img
               className=" rounded-full"
@@ -68,8 +68,13 @@ function EditProfile() {
               height={90}
             />
 
-            <button className="absolute bottom-0 -right-2 w-[30px] h-[30px] bg-black items-center flex justify-center rounded-full" >
-              <img className="rounded-full" width={15} height={15} src={EditImage}></img>
+            <button className="absolute md:bottom-0 top-14 -right-2 w-[30px] h-[30px] bg-black items-center flex justify-center rounded-full">
+              <img
+                className="rounded-full"
+                width={15}
+                height={15}
+                src={EditImage}
+              ></img>
             </button>
           </div>
         </div>
@@ -186,11 +191,11 @@ function EditProfile() {
         </div>
       </div>
       <div className="flex justify-end p-4">
-        <button className="mt-6 w-[190px] px-4 py-2 bg-[#232323] text-white rounded-xl hover:bg-gray-800">
+        <button className="mt-6 w-full md:w-[190px] px-4 py-2 bg-[#232323] text-white rounded-xl hover:bg-gray-800">
           Save
         </button>
       </div>
-    </>
+    </div>
   );
 }
 

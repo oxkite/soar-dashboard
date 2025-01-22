@@ -57,10 +57,10 @@ export default function Header({ link }: headerPropsType) {
             </div>
           </form>
 
-          <button className="rounded-full !px-[11px] hover:bg-gray-100 focus:outline-none">
+          <button className="rounded-full !px-[11px] hover:bg-gray-100 focus:outline-none hidden md:block">
             <img src={settingImage} alt=""></img>
           </button>
-          <button className="rounded-full !px-[11px] hover:bg-gray-100 focus:outline-none">
+          <button className="rounded-full !px-[11px] hover:bg-gray-100 focus:outline-none ">
             <img src={notifyImage} alt=""></img>
           </button>
           <img className=" rounded-full" src={avatar} alt="Rounded avatar" />
