@@ -82,7 +82,7 @@ export default function Dashboard() {
           <p className="text-[22px] font-[600] text-[#343C6A] pb-4">
             Expense Statistics
           </p>
-          <div className="border rounded-2xl bg-white h-[87%]">
+          <div className="border rounded-2xl bg-white h-[405px]">
             <Statistic />
           </div>
         </div>

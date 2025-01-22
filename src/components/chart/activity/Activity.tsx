@@ -66,7 +66,7 @@ export default function Activity() {
         options={schema.options}
         series={schema.series}
         type="bar"
-        height={300}
+        height={390}
       />
     </div>
   );
