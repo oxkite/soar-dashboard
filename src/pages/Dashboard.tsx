@@ -3,6 +3,7 @@ import { useDraggable } from 'react-use-draggable-scroll';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
+
 import Card from '../components/card/Card';
 import Transactions from '../components/transaction/Transaction';
 import Activity from '../components/chart/activity/Activity';
@@ -11,6 +12,7 @@ import QuickTransfer from '../components/transfer/QuickTransfer';
 import BalanceHistory from '../components/chart/balance/BalanceChart';
 
 import RecentTx from '../data/tx.json';
+import CardInfo from '../data/card.json';
 
 export default function Dashboard() {
   const ref =
@@ -34,28 +36,30 @@ export default function Dashboard() {
             {...events}
             ref={ref}
           >
-            <Card
-              balance={5756}
-              isColorWhite={false}
-              cardName="Eddy Cusuma"
-              validDate="12/22"
-              cardNumber="8547 5411 5587 2441"
-            />
-            <Card
-              balance={5756}
-              isColorWhite={true}
-              cardName="Eddy Cusuma"
-              validDate="12/22"
-              cardNumber="8547 5411 5587 2441"
-            />
+            {CardInfo.map((card) => {
+              return (
+                <Card
+                  balance={card.balance}
+                  isColorWhite={card.isColorWhite}
+                  cardName={card.cardName}
+                  validDate={card.validDate}
+                  cardNumber={card.cardNumber}
+                />
+              );
+            })}
           </div>
         </div>
         <div className="justify-start lg:col-span-2 col-span-6">
           <p className="text-[22px] font-[600] text-[#343C6A] text-start mb-4">
             Recent Transcation
           </p>
-          <div className="flex flex-col xl:gap-7 gap-5 bg-white rounded-[30px] px-6 py-6 justify-between">
-            {RecentTx.slice(0, 3).map((tx: any) => {
+          <div
+            className="flex flex-col gap-7 bg-white rounded-[30px] md:p-6 p-4 h-[270px] justify-between overflow-x-scroll scrollbar-hide hidden-scrollbar"
+            style={{ cursor: 'grab' }}
+            {...events}
+            ref={ref}
+          >
+            {RecentTx.map((tx: any) => {
               return (
                 <Transactions
                   txType={tx.txType}

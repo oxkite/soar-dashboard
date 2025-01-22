@@ -77,10 +77,22 @@ export default function Setting() {
         </nav>
       </div>
 
-      <div className="mt-6 ">
-        {activeTab === 'edit' && <EditProfile />}
-        {activeTab === 'preferences' && <Preferences />}
-        {activeTab === 'security' && <Security />}
+      <div className="mt-6 transition-opacity duration-300 ease-in-out">
+        {activeTab === 'edit' && (
+          <div className="opacity-100 transition-opacity duration-3000 ease-in-out">
+            <EditProfile />
+          </div>
+        )}
+        {activeTab === 'preferences' && (
+          <div className="opacity-100 transition-opacity duration-3000 ease-in-out">
+            <Preferences />
+          </div>
+        )}
+        {activeTab === 'security' && (
+          <div className="opacity-100 transition-opacity duration-3000 ease-in-out">
+            <Security />
+          </div>
+        )}
       </div>
     </div>
   );
@@ -107,23 +119,17 @@ function EditProfile() {
     if (!file) return;
 
     try {
-      // Create preview immediately
       const previewUrl = URL.createObjectURL(file);
       setImage(previewUrl);
-
-      // Prepare form data
       const formData = new FormData();
       formData.append('avatar', file);
 
-      // Upload file
       const result = await uploadAvatar(formData);
-
       if (!result.success) {
         throw new Error(result.error);
       }
     } catch (error) {
       console.error('Upload failed:', error);
-      // Revert to previous image if upload fails
       setImage(Avatar);
     } finally {
     }
@@ -137,19 +143,18 @@ function EditProfile() {
     setProfileData(e.target.value);
   };
   return (
-    <div className="bg-white rounded-3xl px-4">
+    <div className="bg-white rounded-3xl px-10">
       <div className="md:flex space-y-6 gap-8 p-4 h-full">
         <div className="flex justify-center gap-4 py-6">
-          <div className="relative">
             <img
-              className=" rounded-full w-[88px] h-20 object-cover"
+              className=" rounded-full sm:w-[90px] h-[90px] object-cover"
               src={image}
               alt="Rounded avatar"
             />
-
+          <div className="relative">
             <button
               onClick={handleEditClick}
-              className="absolute md:bottom-0 top-14 -right-2 w-[30px] h-[30px] bg-black items-center flex justify-center rounded-full"
+              className="absolute md:bottom-0 top-14 right-2 w-[30px] h-[30px] bg-black items-center flex justify-center rounded-full"
             >
               <img
                 className="rounded-full"
@@ -169,7 +174,7 @@ function EditProfile() {
             />
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full h-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full h-full pl-4">
           <div className="space-y-2 flex flex-col text-start">
             <label className="text-sm text-[16px] font-[400] text-[#232323]">
               Your Name
@@ -320,7 +325,7 @@ function EditProfile() {
       <div className="flex justify-end p-4">
         <button
           onClick={handleInputChange}
-          className="mt-6 w-full md:w-[190px] px-4 py-2 bg-[#232323] text-white rounded-xl hover:bg-gray-800"
+          className="mt-6 w-full md:w-[190px] px-4 py-2 bg-[#232323] text-white rounded-xl hover:bg-gray-800 focus:bg-[#0e0d0d]"
         >
           Save
         </button>

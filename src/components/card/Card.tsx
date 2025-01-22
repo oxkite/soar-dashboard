@@ -28,7 +28,7 @@ export default function Card({
         isColorWhite
           ? 'bg-white'
           : 'bg-gradient-to-tr from-[#5B5A6F] to-[#030303] text-white'
-      } flex flex-col xl:gap-4 gap-2 border border-[#DFEAF2] rounded-[30px] w-full p-0 font-[Lato] min-w-[310px] `}
+      } flex flex-col xl:gap-4 gap-2 border border-[#DFEAF2] rounded-[30px] w-full p-0 font-[Lato] min-w-[450px] `}
     >
       <div className="flex justify-between p-6">
         <div className="text-start">

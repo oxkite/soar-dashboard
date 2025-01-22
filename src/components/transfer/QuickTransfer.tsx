@@ -56,7 +56,7 @@ export default function QuickTransfer() {
             className="bg-[#EDF1F7] pl-6 text-[#718EBF] focus:outline-none rounded-full w-full"
           />
           <div className="">
-            <button className="rounded-full border bg-[#232323] px-4 py-3 w-[100px] gap-2 text-[16px] font-[500] text-white flex border-none shadow-md">
+            <button className="rounded-full border bg-[#232323] hover:bg-[#474747] focus:bg-[#0e0d0d] px-4 py-3 w-[100px] gap-2 text-[16px] font-[500] text-white flex border-none shadow-md">
               Send
               <img src={SendImage} />
             </button>
