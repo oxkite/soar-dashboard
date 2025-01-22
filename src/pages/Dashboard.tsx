@@ -1,6 +1,8 @@
 import React from 'react';
 import { useDraggable } from 'react-use-draggable-scroll';
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import Card from '../components/card/Card';
 import Transactions from '../components/transaction/Transaction';
 import Activity from '../components/chart/activity/Activity';
@@ -20,7 +22,11 @@ export default function Dashboard() {
         <div className="lg:col-span-4 col-span-6">
           <div className=" flex justify-between items-center mb-4">
             <p className="text-[22px] font-[600] text-[#343C6A]">My Cards</p>
-            <p className="text-[17px] font-[600] text-[#343C6A]">See All</p>
+            <Link to={'/overview/cards'}>
+              <button className="text-[17px] font-[600] text-[#343C6A] hover:text-[#707ab6] hover:text-[18px] focus:text-[#1e223a]">
+                See All
+              </button>
+            </Link>
           </div>
           <div
             className="flex gap-4 overflow-x-scroll scrollbar-hide hidden-scrollbar"
@@ -91,6 +97,7 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+      <Outlet />
     </div>
   );
 }

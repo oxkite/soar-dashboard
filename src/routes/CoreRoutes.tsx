@@ -12,7 +12,18 @@ const CoreRoutes = {
     {
       path: '/overview',
       title: 'Dashboard',
-      element: <Dashboard />,
+      // element: <Dashboard />,
+      children: [
+        {
+          path: '',
+          element: <Dashboard />,
+        },
+        {
+          path: 'cards',
+          title: 'Cards',
+          element: <div>All cards</div>,
+        },
+      ],
     },
     {
       path: '/transaction',

@@ -10,8 +10,8 @@ import IconLoans from '../assets/loan 1.svg';
 import IconServices from '../assets/service 1.svg';
 import IconPriviledges from '../assets/Privileges.svg';
 import IconSettings from '../assets/service 1.svg';
-import ClickIconDashboard from '../assets/clickedHome 2.svg'
-import ClickIconSetting from "../assets/clickedSetting.svg"
+import ClickIconDashboard from '../assets/clickedHome 2.svg';
+import ClickIconSetting from '../assets/clickedSetting.svg';
 
 export default function SideBar() {
   return (
@@ -39,7 +39,7 @@ export default function SideBar() {
         </svg>
       </button> */}
 
-      <div className="xl:w-64 w-20 h-screen transition-transform -translate-x-full sm:translate-x-0 ">
+      <div className="xl:w-64 sm:w-20 w-0 h-screen transition-transform -translate-x-full sm:translate-x-0 ">
         <div className="h-full py-8 overflow-y-auto dark:bg-gray-800">
           <div className="flex items-center justify-center pb-10">
             <img src={LogoSoar} alt="Sora Logo" />
