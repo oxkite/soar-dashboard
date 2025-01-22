@@ -29,7 +29,7 @@ export default function Transactions({
       <div className="flex gap-6">
         <img src={imageMap[txType] || PersonalTxImage} alt={txType} />
         <div className="text-start">
-          <p className="text-[16px] font-[500] text-[#232323]">{txType}</p>
+          <p className="text-[16px] font-[500] text-[#232323] truncate overflow-hidden">{txType}</p>
           <p className="text-[15px] font-[400] text-[#718EBF]">{date}</p>
         </div>
       </div>
