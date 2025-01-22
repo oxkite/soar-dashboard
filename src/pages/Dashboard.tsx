@@ -19,13 +19,13 @@ export default function Dashboard() {
     useRef<HTMLDivElement>() as React.MutableRefObject<HTMLInputElement>;
   const { events } = useDraggable(ref);
   return (
-    <div className="flex flex-col gap-6 w-full h-full">
+    <div aria-label='Dashboard page' className="flex flex-col gap-6 w-full h-full">
       <div className="grid grid-cols-6 gap-6">
         <div className="lg:col-span-4 col-span-6">
           <div className=" flex justify-between items-center mb-4">
             <p className="text-[22px] font-[600] text-[#343C6A]">My Cards</p>
             <Link to={'/overview/cards'}>
-              <button className="text-[17px] font-[600] text-[#343C6A] hover:text-[#707ab6] hover:text-[18px] focus:text-[#1e223a]">
+              <button aria-label='All cards' className="text-[17px] font-[600] text-[#343C6A] hover:text-[#707ab6] hover:text-[18px] focus:text-[#1e223a]">
                 See All
               </button>
             </Link>

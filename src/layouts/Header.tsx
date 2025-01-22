@@ -25,7 +25,9 @@ export default function Header({ link, onMenuClick }: headerPropsType) {
   return (
     <div className="absolute min-w-full px-10 py-5 bg-white border-b border-b-[#E6EFF5]">
       <div className="flex justify-between items-center gap-3 ">
-        <button className="sm:hidden block" onClick={onMenuClick}>
+        <button 
+        aria-label='Menu item'
+        className="sm:hidden block" onClick={onMenuClick}>
           <img src={MenuImage} alt="Menu item" />
         </button>
 
@@ -55,6 +57,7 @@ export default function Header({ link, onMenuClick }: headerPropsType) {
               <input
                 type="search"
                 id="default-search"
+                aria-label='Search'
                 className="block w-full py-2 ps-10 text-[15px] focus:outline-none text-[#8BA3CB] border border-gray-300 rounded-[30px] bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 placeholder="Search for something"
                 required
@@ -62,10 +65,10 @@ export default function Header({ link, onMenuClick }: headerPropsType) {
             </div>
           </form>
 
-          <button className="rounded-full !px-[11px] hover:bg-gray-100 focus:outline-none hidden md:block">
+          <button aria-label='Setting button' className="rounded-full !px-[11px] hover:bg-gray-100 focus:outline-none hidden md:block">
             <img src={SettingImage} alt=""></img>
           </button>
-          <button className="rounded-full !px-[11px] hover:bg-gray-100 focus:outline-none hidden sm:block">
+          <button aria-label='Notify button' className="rounded-full !px-[11px] hover:bg-gray-100 focus:outline-none hidden sm:block">
             <img src={NotifyImage} alt=""></img>
           </button>
           <img className=" rounded-full" src={avatar} alt="Rounded avatar" />
@@ -93,6 +96,7 @@ export default function Header({ link, onMenuClick }: headerPropsType) {
           <input
             type="search"
             id="default-search"
+            aria-label='Search'
             className="block w-full py-2 ps-10 text-[15px] focus:outline-none text-[#8BA3CB] border border-gray-300 rounded-[30px] bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
             placeholder="Search for something"
             required

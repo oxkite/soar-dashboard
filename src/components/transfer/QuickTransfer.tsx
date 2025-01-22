@@ -15,7 +15,7 @@ export default function QuickTransfer() {
     Members[(startIndex + 2) % Members.length],
   ];
   return (
-    <div className="p-4 flex flex-col justify-between gap-6 h-[235px]">
+    <div aria-label='Transfer money' className="p-4 flex flex-col justify-between gap-6 h-[235px]">
       <div className="flex justify-between items-center gap-4">
         <div className="overflow-hidden">
           <div className="grid grid-cols-3 gap-6 transition-transform duration-300 ease-in-out">
@@ -40,6 +40,7 @@ export default function QuickTransfer() {
         </div>
 
         <button
+          aria-label="Next member"
           className="rounded-full border border-gray-500 py-4 px-5 border-none shadow-md"
           onClick={handleNext}
         >
@@ -52,11 +53,15 @@ export default function QuickTransfer() {
         </p>
         <div className="col-span-2 bg-[#EDF1F7] rounded-full flex">
           <input
+            aria-label="Quick transfer"
             type="number"
             className="bg-[#EDF1F7] pl-6 text-[#718EBF] focus:outline-none rounded-full w-full"
           />
           <div className="">
-            <button className="rounded-full border bg-[#232323] hover:bg-[#474747] focus:bg-[#0e0d0d] px-4 py-3 w-[100px] gap-2 text-[16px] font-[500] text-white flex border-none shadow-md">
+            <button
+              aria-label="Send money"
+              className="rounded-full border bg-[#232323] hover:bg-[#474747] focus:bg-[#0e0d0d] px-4 py-3 w-[100px] gap-2 text-[16px] font-[500] text-white flex border-none shadow-md"
+            >
               Send
               <img src={SendImage} />
             </button>

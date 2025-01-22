@@ -31,7 +31,7 @@ export default function Transactions({
     'Depoist Paypal': PaypalImage,
   };
   return (
-    <div className="flex items-center justify-between h-full">
+    <div aria-label='Transactions' className="flex items-center justify-between h-full">
       <div className="flex gap-6">
         <img src={imageMap[txType] || PersonalTxImage} alt={txType} />
         <div className="text-start">

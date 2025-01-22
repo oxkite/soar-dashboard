@@ -17,7 +17,7 @@ const SideBarItem = ({
   const location = useLocation();
   const isActive = location.pathname == link;
   return (
-    <div className="relative w-full h-full hover:bg-gray-100 dark:hover:bg-gray-700 py-1">
+    <div aria-label='Side menu item' className="relative w-full h-full hover:bg-gray-100 dark:hover:bg-gray-700 py-1">
       {isActive && (
         <div className="absolute top-[-3px] left-0 w-2 h-16 bg-[#232323] rounded-e-md border-tl-none"></div>
       )}
