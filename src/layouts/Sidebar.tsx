@@ -38,7 +38,7 @@ export default function SideBar({ isOpen, onClose }: SidebarProps) {
   }, [isOpen, onClose]);
 
   const sideBar = (
-    <div className="h-full py-8 overflow-y-auto dark:bg-gray-800">
+    <div className="h-full py-8 overflow-y-auto">
       <div className="flex items-center justify-center pb-10">
         <img src={LogoSoar} alt="Soar Logo" />
         <p className="font-[800] text-[25px] text-[#343C6A] ms-1 hidden xl:block">
