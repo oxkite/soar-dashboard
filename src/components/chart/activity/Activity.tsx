@@ -1,4 +1,3 @@
-import { SubTitle } from 'chart.js';
 import { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts';
 

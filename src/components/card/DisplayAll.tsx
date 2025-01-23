@@ -25,13 +25,15 @@ export default function DisplayAllCards() {
     <div className="space-y-4">
       {cardData.map((card: any) => {
         return (
-          <Card
-            balance={card.balance}
-            isColorWhite={card.isColorWhite}
-            cardName={card.cardName}
-            validDate={card.validDate}
-            cardNumber={card.cardNumber}
-          />
+          <div key={card.id}>
+            <Card
+              balance={card.balance}
+              isColorWhite={card.isColorWhite}
+              cardName={card.cardName}
+              validDate={card.validDate}
+              cardNumber={card.cardNumber}
+            />
+          </div>
         );
       })}
     </div>

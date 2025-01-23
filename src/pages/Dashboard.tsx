@@ -82,13 +82,15 @@ export default function Dashboard() {
           >
             {cardData.map((card: any) => {
               return (
-                <Card
-                  balance={card.balance}
-                  isColorWhite={card.isColorWhite}
-                  cardName={card.cardName}
-                  validDate={card.validDate}
-                  cardNumber={card.cardNumber}
-                />
+                <div key={card.id}>
+                  <Card
+                    balance={card.balance}
+                    isColorWhite={card.isColorWhite}
+                    cardName={card.cardName}
+                    validDate={card.validDate}
+                    cardNumber={card.cardNumber}
+                  />
+                </div>
               );
             })}
           </div>
@@ -105,11 +107,13 @@ export default function Dashboard() {
           >
             {transactionData.map((tx: any) => {
               return (
-                <Transactions
-                  txType={tx.txType}
-                  date={tx.date}
-                  amount={tx.amount}
-                />
+                <div key={tx.id}>
+                  <Transactions
+                    txType={tx.txType}
+                    date={tx.date}
+                    amount={tx.amount}
+                  />
+                </div>
               );
             })}
           </div>

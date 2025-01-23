@@ -44,7 +44,7 @@ export default function QuickTransfer() {
         <div className="overflow-hidden">
           <div className="grid grid-cols-3 gap-6 transition-transform duration-300 ease-in-out">
             {visibleProfiles.map((members: any) => (
-              <div className="items-center text-center">
+              <div key={members.id} className="items-center text-center">
                 <div className="flex justify-center">
                   <img
                     className="rounded-full"
