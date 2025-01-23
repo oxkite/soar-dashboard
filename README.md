@@ -27,7 +27,7 @@ To set up the application locally, follow these steps:
 
 2. **Install Dependencies**
 
-Make sure you are in the project directory and run:
+   Make sure you are in the project directory and run:
 
    ```bash
    npm install
@@ -35,7 +35,7 @@ Make sure you are in the project directory and run:
 
 3. **Start the Development Server**
 
-To run the application locally, use the following command:
+   To run the application locally, use the following command:
 
    ```
    npm run dev
@@ -45,7 +45,7 @@ This will start the development server, and you can view the application in your
 
 4. ***Build for Production***
 
-To create a production build of the application, run:
+   To create a production build of the application, run:
 
    ```
    npm run build
