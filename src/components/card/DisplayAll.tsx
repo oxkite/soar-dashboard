@@ -12,7 +12,7 @@ export default function DisplayAllCards() {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        setCardData(data.cards); // Set the activity data
+        setCardData(data.cards); 
       } catch (error) {
         console.log('Error!!!!');
       } finally {
@@ -22,16 +22,18 @@ export default function DisplayAllCards() {
     fetchCardData();
   }, []);
   return (
-    <div className="">
+    <div className="space-y-4">
       {cardData.map((card: any) => {
         return (
-          <Card
-            balance={card.balance}
-            isColorWhite={card.isColorWhite}
-            cardName={card.cardName}
-            validDate={card.validDate}
-            cardNumber={card.cardNumber}
-          />
+          <div key={card.id}>
+            <Card
+              balance={card.balance}
+              isColorWhite={card.isColorWhite}
+              cardName={card.cardName}
+              validDate={card.validDate}
+              cardNumber={card.cardNumber}
+            />
+          </div>
         );
       })}
     </div>

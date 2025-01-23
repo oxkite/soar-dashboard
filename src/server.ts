@@ -1,5 +1,20 @@
-import { Server } from 'miragejs';
+import { Server, Response } from 'miragejs';
 
+let profile = [
+  {
+    id: 0,
+    name: 'Charlene Reed',
+    userName: 'Charlene Reed',
+    email: 'charlenereed@gmail.com',
+    password: '123456789',
+    dateOfBirth: '25 January 1990',
+    presentAddress: 'San Jose, California, USA',
+    permanentAddress: 'San Jose, California, USA',
+    city: 'San Jose',
+    postalCode: '45962',
+    country: 'USA',
+  },
+];
 let activities = [
   { date: '01/23/2025', deposit: 450, withdraw: 260 },
   { date: '01/22/2025', deposit: 370, withdraw: 400 },
@@ -15,6 +30,7 @@ let activities = [
 
 let cards = [
   {
+    id: 0,
     cardNumber: '8547 5411 5587 2441',
     cardName: 'Eddy Cusuma',
     balance: 5756,
@@ -22,6 +38,7 @@ let cards = [
     validDate: '12/22',
   },
   {
+    id: 1,
     cardNumber: '5587 5411 5587 5587',
     cardName: 'Rafa Rosa',
     balance: 96586,
@@ -29,6 +46,7 @@ let cards = [
     validDate: '12/22',
   },
   {
+    id: 2,
     cardNumber: '5411 5587 5587 5587',
     cardName: 'Eddy Cusuma',
     balance: 576,
@@ -36,6 +54,7 @@ let cards = [
     validDate: '12/22',
   },
   {
+    id: 3,
     cardNumber: '2441 5411 5587 5411',
     cardName: 'Eddy Cusuma',
     balance: 5756,
@@ -46,26 +65,31 @@ let cards = [
 
 let transactions = [
   {
+    id: 0,
     txType: 'Depoist from my Card',
     date: '27/01/2021',
     amount: -850,
   },
   {
+    id: 1,
     txType: 'Depoist Paypal',
     date: '25/01/2021',
     amount: 2500,
   },
   {
+    id: 2,
     txType: 'Jemi Wilson',
     date: '12/01/2021',
     amount: 5400,
   },
   {
+    id: 3,
     txType: 'Depoist Paypal',
     date: '15/01/2021',
     amount: -2500,
   },
   {
+    id: 4,
     txType: 'Jemi Wilson',
     date: '12/01/2021',
     amount: 5400,
@@ -74,26 +98,31 @@ let transactions = [
 
 let members = [
   {
+    id: 0,
     name: 'Livia Bator',
     role: 'CEO',
     avatar: 'https://i.postimg.cc/qqnDyYZK/member1.png',
   },
   {
+    id: 1,
     name: 'Randy Press',
     role: 'Director',
     avatar: 'https://i.postimg.cc/G3s5W8hp/member2.png',
   },
   {
+    id: 2,
     name: 'Workman',
     role: 'Desinger',
     avatar: 'https://i.postimg.cc/RV5D4SNL/member3.png',
   },
   {
+    id: 3,
     name: 'Randy Press',
     role: 'CTO',
     avatar: 'https://i.postimg.cc/G3s5W8hp/member2.png',
   },
   {
+    id: 4,
     name: 'Workman',
     role: 'HR',
     avatar: 'https://i.postimg.cc/RV5D4SNL/member3.png',
@@ -166,6 +195,26 @@ export function makeServer() {
         return {
           balance,
         };
+      });
+      //POST REQUEST
+      this.post('/api/members', (_schema, request) => {
+        try {
+          let attrs = JSON.parse(request.requestBody);
+
+          const memberIndex = profile.findIndex(
+            (member) => member.id === attrs.id
+          );
+
+          if (memberIndex !== -1) {
+            profile[memberIndex] = { ...profile[memberIndex], ...attrs };
+            return { profile };
+          } else {
+            return new Response(404, {}, { error: 'Member not found' });
+          }
+        } catch (error) {
+          console.error('Error parsing request body:', error);
+          return new Response(400, {}, { error: 'Invalid request body' });
+        }
       });
     },
   });

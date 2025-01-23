@@ -11,11 +11,13 @@ import Statistic from '../components/chart/statistics/Statistics';
 import QuickTransfer from '../components/transfer/QuickTransfer';
 import BalanceHistory from '../components/chart/balance/BalanceChart';
 
-
 export default function Dashboard() {
-  const ref =
+  const cardRef =
     useRef<HTMLDivElement>() as React.MutableRefObject<HTMLInputElement>;
-  const { events } = useDraggable(ref);
+  const txRef =
+    useRef<HTMLDivElement>() as React.MutableRefObject<HTMLInputElement>;
+  const { events: cardEvent } = useDraggable(cardRef);
+  const { events: txEvent } = useDraggable(txRef);
 
   const [cardData, setCardData] = useState([]);
   useEffect(() => {
@@ -26,7 +28,7 @@ export default function Dashboard() {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        setCardData(data.cards); // Set the activity data
+        setCardData(data.cards); 
       } catch (error) {
         console.log('Error!!!!');
       } finally {
@@ -36,24 +38,24 @@ export default function Dashboard() {
     fetchCardData();
   }, []);
 
-    const [transactionData, setTransactionData] = useState([]);
-    useEffect(() => {
-      const fetchTransactionData = async () => {
-        try {
-          const response = await fetch('/api/txs');
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          const data = await response.json();
-          setTransactionData(data.transactions); // Set the activity data
-        } catch (error) {
-          console.log('Error!!!!');
-        } finally {
+  const [transactionData, setTransactionData] = useState([]);
+  useEffect(() => {
+    const fetchTransactionData = async () => {
+      try {
+        const response = await fetch('/api/txs');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
         }
-      };
+        const data = await response.json();
+        setTransactionData(data.transactions); 
+      } catch (error) {
+        console.log('Error!!!!');
+      } finally {
+      }
+    };
 
-      fetchTransactionData();
-    }, []);
+    fetchTransactionData();
+  }, []);
   return (
     <div
       aria-label="Dashboard page"
@@ -75,18 +77,20 @@ export default function Dashboard() {
           <div
             className="flex gap-4 overflow-x-scroll scrollbar-hide hidden-scrollbar"
             style={{ cursor: 'grab' }}
-            {...events}
-            ref={ref}
+            {...cardEvent}
+            ref={cardRef}
           >
             {cardData.map((card: any) => {
               return (
-                <Card
-                  balance={card.balance}
-                  isColorWhite={card.isColorWhite}
-                  cardName={card.cardName}
-                  validDate={card.validDate}
-                  cardNumber={card.cardNumber}
-                />
+                <div key={card.id}>
+                  <Card
+                    balance={card.balance}
+                    isColorWhite={card.isColorWhite}
+                    cardName={card.cardName}
+                    validDate={card.validDate}
+                    cardNumber={card.cardNumber}
+                  />
+                </div>
               );
             })}
           </div>
@@ -96,18 +100,20 @@ export default function Dashboard() {
             Recent Transcation
           </p>
           <div
-            className="flex flex-col gap-7 bg-white rounded-[30px] md:p-6 p-4 h-[270px] justify-between overflow-x-scroll scrollbar-hide hidden-scrollbar"
+            className="flex flex-col gap-6 bg-white rounded-[30px] md:p-6 p-4 h-[255px] justify-between overflow-x-scroll scrollbar-hide hidden-scrollbar"
             style={{ cursor: 'grab' }}
-            {...events}
-            ref={ref}
+            {...txEvent}
+            ref={txRef}
           >
             {transactionData.map((tx: any) => {
               return (
-                <Transactions
-                  txType={tx.txType}
-                  date={tx.date}
-                  amount={tx.amount}
-                />
+                <div key={tx.id}>
+                  <Transactions
+                    txType={tx.txType}
+                    date={tx.date}
+                    amount={tx.amount}
+                  />
+                </div>
               );
             })}
           </div>
@@ -124,7 +130,7 @@ export default function Dashboard() {
           <p className="text-[22px] font-[600] text-[#343C6A] pb-4">
             Expense Statistics
           </p>
-          <div className="border rounded-2xl bg-white h-[405px]">
+          <div className="border rounded-2xl bg-white h-[365px]">
             <Statistic />
           </div>
         </div>
@@ -137,7 +143,9 @@ export default function Dashboard() {
           </div>
         </div>
         <div className="lg:col-span-4 col-span-6 text-start pb-6">
-          <p className="text-[22px] font-[600] text-[#343C6A] pb-4">Balance</p>
+          <p className="text-[22px] font-[600] text-[#343C6A] pb-4">
+            Balance History
+          </p>
           <div className="border rounded-2xl bg-white p-4">
             <BalanceHistory />
           </div>

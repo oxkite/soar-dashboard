@@ -1,12 +1,11 @@
 'use client';
 
 import { useState, useRef } from 'react';
-
-// import { uploadAvatar } from '../components/avatar/upload';
-import EditImage from '../assets/edit_btn.svg';
-import Avatar from '../assets/edit_avatar.png';
+import EditImage from '../assets/setting/edit_btn.svg';
+import Avatar from '../assets/setting/avatar.png';
 
 interface ProfileData {
+  id: number;
   name: string;
   userName: string;
   email: string;
@@ -41,7 +40,10 @@ export default function Setting() {
   const [activeTab, setActiveTab] = useState('edit');
 
   return (
-    <div aria-label='Setting page' className="w-full h-100vh  my-4 bg-white rounded-3xl">
+    <div
+      aria-label="Setting page"
+      className="w-full h-100vh  my-4 bg-white rounded-3xl"
+    >
       <div className="border-b border-gray-200 px-6 pt-4">
         <nav className="-mb-px flex gap-6 text-[16px] font-[500]">
           <button
@@ -104,6 +106,7 @@ export default function Setting() {
 function EditProfile() {
   const [image, setImage] = useState(Avatar);
   const [profileData, setProfileData] = useState<ProfileData>({
+    id: 0,
     name: 'Charlene Reed',
     userName: 'Charlene Reed',
     email: 'charlenereed@gmail.com',
@@ -142,8 +145,28 @@ function EditProfile() {
     fileInputRef.current?.click();
   };
 
-  const handleInputChange = (e: any) => {
+  const handleSubmit = async (e: any) => {
     setProfileData(e.target.value);
+    e.preventDefault();
+
+    try {
+      const response = await fetch('/api/members', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(profileData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const updatedData = await response.json();
+      console.log('Updated Profile:', updatedData);
+    } catch (error) {
+      console.error('Error updating profile:', error);
+    }
   };
   return (
     <div className="bg-white rounded-3xl px-10">
@@ -156,7 +179,7 @@ function EditProfile() {
           />
           <div className="relative">
             <button
-            aria-label='Edit image'
+              aria-label="Edit image"
               onClick={handleEditClick}
               className="absolute md:bottom-0 top-14 right-2 w-[30px] h-[30px] bg-black items-center flex justify-center rounded-full"
             >
@@ -339,8 +362,8 @@ function EditProfile() {
       </div>
       <div className="flex justify-end p-4">
         <button
-        aria-label='Save info'
-          onClick={handleInputChange}
+          aria-label="Save info"
+          onClick={handleSubmit}
           className="mt-6 w-full md:w-[190px] px-4 py-2 bg-[#232323] text-white rounded-xl hover:bg-gray-800 focus:bg-[#0e0d0d]"
         >
           Save

@@ -26,7 +26,7 @@ export default function Activity() {
         }
         const data = await response.json();
         console.log('Data is here', data);
-        setActivityData(data.activities); // Set the activity data
+        setActivityData(data.activities);
       } catch (error) {
         console.log('Error!!!!');
       } finally {
@@ -66,6 +66,7 @@ export default function Activity() {
       dataLabels: {
         enabled: false,
       },
+ 
     },
     series: [
       {
@@ -85,7 +86,7 @@ export default function Activity() {
         options={schema.options}
         series={schema.series}
         type="bar"
-        height={390}
+        height={350}
       />
     </div>
   );

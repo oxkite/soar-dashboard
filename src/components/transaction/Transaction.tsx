@@ -1,6 +1,6 @@
-import CardImage from '../../assets/deposit_tx.svg';
-import PaypalImage from '../../assets/deposit_paypal.svg';
-import PersonalTxImage from '../../assets/tx_personal.svg';
+import CardImage from '../../assets/dashboard/deposit_tx.svg';
+import PaypalImage from '../../assets/dashboard/deposit_paypal.svg';
+import PersonalTxImage from '../../assets/dashboard/tx_personal.svg';
 
 interface TransactionProps {
   txType: string;
