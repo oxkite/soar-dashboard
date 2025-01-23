@@ -16,7 +16,7 @@ You can view the live demo of the application at the following link:
 
 ## Setup Instructions
 
-To set up the application locally, follow these steps:
+   To set up the application locally, follow these steps:
 
 1. **Clone the Repository**
 
@@ -51,7 +51,7 @@ This will start the development server, and you can view the application in your
    npm run build
    ```
 
-The build output will be in the build directory.
+   The build output will be in the build directory.
 
 ## Technologies Used
 
