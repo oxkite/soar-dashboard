@@ -3,16 +3,16 @@
 import { useRef, useEffect } from 'react';
 
 import SideBarItem from '../components/sidebar/SideBarItem';
-import LogoSoar from '../assets/mingcute_task-fill.svg';
-import IconDashboard from '../assets/home.svg';
-import IconTransactions from '../assets/transaction.svg';
-import IconAccounts from '../assets/user.svg';
-import IconInvestments from '../assets/investment.svg';
-import IconCreditCards from '../assets/credit-card 1.svg';
-import IconLoans from '../assets/loan.svg';
-import IconServices from '../assets/service.svg';
-import IconPriviledges from '../assets/Privileges.svg';
-import IconSettings from '../assets/settings.svg';
+import LogoSoar from '../assets/sidebar/task.svg';
+import IconDashboard from '../assets/sidebar/home.svg';
+import IconTransactions from '../assets/sidebar/transaction.svg';
+import IconAccounts from '../assets/sidebar/user.svg';
+import IconInvestments from '../assets/sidebar/investment.svg';
+import IconCreditCards from '../assets/sidebar/credit-card.svg';
+import IconLoans from '../assets/sidebar/loan.svg';
+import IconServices from '../assets/sidebar/service.svg';
+import IconPriviledges from '../assets/sidebar/Privileges.svg';
+import IconSettings from '../assets/sidebar/settings.svg';
 
 
 interface SidebarProps {

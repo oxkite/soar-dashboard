@@ -1,16 +1,15 @@
 import clsx from 'clsx';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
-import avatar from '../assets/avatar.png';
-import SettingImage from '../assets/settings 1.svg';
-import NotifyImage from '../assets/notification.svg';
-import MenuImage from '../assets/menu.svg';
+import avatar from '../assets/header/avatar.png';
+import SettingImage from '../assets/header/settings.svg';
+import NotifyImage from '../assets/header/notification.svg';
+import MenuImage from '../assets/header/menu.svg';
 
 type headerPropsType = {
   link: string;
   onMenuClick: () => void;
 };
-
 
 const formatString = (input: string) => {
   const pathSegments = input.split('/');
@@ -58,7 +57,7 @@ export default function Header({ link, onMenuClick }: headerPropsType) {
               </div>
               <input
                 type="search"
-                id="default-search"
+                id="search"
                 aria-label="Search"
                 className="block w-full p-2 ps-10 text-[15px] focus:outline-none text-[#8BA3CB] border border-gray-300 rounded-[30px] bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 placeholder="Search for something"
@@ -66,13 +65,14 @@ export default function Header({ link, onMenuClick }: headerPropsType) {
               />
             </div>
           </form>
-
-          <button
-            aria-label="Setting button"
-            className="rounded-full !px-[11px] hover:opacity-50 focus:outline-none hidden md:block"
-          >
-            <img src={SettingImage} alt=""></img>
-          </button>
+          <Link to={'/setting'}>
+            <button
+              aria-label="Setting button"
+              className="rounded-full !px-[11px] hover:opacity-50 focus:outline-none hidden md:block"
+            >
+              <img src={SettingImage} alt="Setting image"></img>
+            </button>
+          </Link>
           <button
             aria-label="Notify button"
             className="rounded-full !px-[11px] hover:opacity-50 focus:outline-none hidden sm:block"

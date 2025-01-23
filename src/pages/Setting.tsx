@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import EditImage from '../assets/edit_btn.svg';
-import Avatar from '../assets/edit_avatar.png';
+import EditImage from '../assets/setting/edit_btn.svg';
+import Avatar from '../assets/setting/avatar.png';
 
 interface ProfileData {
   id: number;
@@ -164,7 +164,6 @@ function EditProfile() {
 
       const updatedData = await response.json();
       console.log('Updated Profile:', updatedData);
-      // Optionally update local state or notify user of success
     } catch (error) {
       console.error('Error updating profile:', error);
     }

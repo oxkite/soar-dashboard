@@ -28,7 +28,7 @@ export default function Dashboard() {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        setCardData(data.cards); // Set the activity data
+        setCardData(data.cards); 
       } catch (error) {
         console.log('Error!!!!');
       } finally {
@@ -47,7 +47,7 @@ export default function Dashboard() {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        setTransactionData(data.transactions); // Set the activity data
+        setTransactionData(data.transactions); 
       } catch (error) {
         console.log('Error!!!!');
       } finally {

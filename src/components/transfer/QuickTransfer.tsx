@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 
-import SendImage from '../../assets/send.svg';
-import NextButtonImage from '../../assets/next.svg';
+import SendImage from '../../assets/dashboard/send.svg';
+import NextButtonImage from '../../assets/dashboard/next.svg';
 
 export default function QuickTransfer() {
   const [startIndex, setStartIndex] = useState(0);
   const [memberData, setMemberData] = useState([]);
+  const [selectedMemberId, setSelectedMemberId] = useState(null);
+
   useEffect(() => {
     const fetchMemberData = async () => {
       try {
@@ -14,7 +16,7 @@ export default function QuickTransfer() {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        setMemberData(data.members); // Set the activity data
+        setMemberData(data.members); 
       } catch (error) {
         console.log('Error!!!!', error);
       } finally {
@@ -35,6 +37,9 @@ export default function QuickTransfer() {
         ]
       : [];
 
+  const handleClick = (id: any) => {
+    setSelectedMemberId((prevId) => (prevId === id ? null : id));
+  };
   return (
     <div
       aria-label="Transfer money"
@@ -43,20 +48,32 @@ export default function QuickTransfer() {
       <div className="flex justify-between items-center gap-4">
         <div className="overflow-hidden">
           <div className="grid grid-cols-3 gap-6 transition-transform duration-300 ease-in-out">
-            {visibleProfiles.map((members: any) => (
-              <div key={members.id} className="items-center text-center">
+            {visibleProfiles.map((member: any) => (
+              <div
+                key={member.id}
+                className="items-center text-center space-x-1"
+                onClick={() => handleClick(member.id)}
+              >
                 <div className="flex justify-center">
                   <img
                     className="rounded-full"
-                    src={members.avatar}
+                    src={member.avatar}
                     alt="Rounded avatar"
                   />
                 </div>
-                <p className="text-[16px] font-[400] text-[#232323] truncate">
-                  {members.name}
+                <p
+                  className={`text-[16px] font-[400] text-[#232323] truncate ${
+                    selectedMemberId === member.id ? 'font-bold' : ''
+                  }`}
+                >
+                  {member.name}
                 </p>
-                <p className="text-[15px] font-[400] text-[#718EBF]">
-                  {members.role}
+                <p
+                  className={`text-[15px] font-[400] text-[#718EBF] ${
+                    selectedMemberId === member.id ? 'font-bold' : ''
+                  }`}
+                >
+                  {member.role}
                 </p>
               </div>
             ))}

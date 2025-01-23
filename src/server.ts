@@ -196,7 +196,7 @@ export function makeServer() {
           balance,
         };
       });
-      //POST
+      //POST REQUEST
       this.post('/api/members', (_schema, request) => {
         try {
           let attrs = JSON.parse(request.requestBody);
@@ -207,7 +207,7 @@ export function makeServer() {
 
           if (memberIndex !== -1) {
             profile[memberIndex] = { ...profile[memberIndex], ...attrs };
-            return { profile }; 
+            return { profile };
           } else {
             return new Response(404, {}, { error: 'Member not found' });
           }
