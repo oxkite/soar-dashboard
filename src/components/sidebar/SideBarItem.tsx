@@ -17,12 +17,12 @@ const SideBarItem = ({
   const location = useLocation();
   const isActive = location.pathname == link;
   return (
-    <div aria-label='Side menu item' className="relative w-full h-full hover:bg-gray-100 dark:hover:bg-gray-700 py-1">
+    <div aria-label='Side menu item' className="relative w-full h-full hover:bg-gray-100 py-1">
       {isActive && (
         <div className="absolute top-[-3px] left-0 w-2 h-16 bg-[#232323] rounded-e-md border-tl-none"></div>
       )}
       <Link
-        className="flex items-center text-gray-900 rounded-lg dark:text-white gap-3"
+        className="flex items-center text-gray-900 rounded-lg gap-3"
         to={link}
       >
         <div className="flex items-center p-3 pl-6 xl:pl-12">
