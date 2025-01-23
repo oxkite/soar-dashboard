@@ -56,8 +56,11 @@ The build output will be in the build directory.
 ## Technologies Used
 
 React: A JavaScript library for building user interfaces.
+
 TypeScript: A typed superset of JavaScript that compiles to plain JavaScript.
+
 TailwindCSS: A utility-first CSS framework for creating custom designs.
+
 Contributing
 
 ## License
