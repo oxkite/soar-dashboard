@@ -22,7 +22,7 @@ export default function DisplayAllCards() {
     fetchCardData();
   }, []);
   return (
-    <div className="">
+    <div className="space-y-4">
       {cardData.map((card: any) => {
         return (
           <Card

@@ -1,5 +1,20 @@
-import { Server } from 'miragejs';
+import { Server, Response } from 'miragejs';
 
+let profile = [
+  {
+    id: 0,
+    name: 'Charlene Reed',
+    userName: 'Charlene Reed',
+    email: 'charlenereed@gmail.com',
+    password: '123456789',
+    dateOfBirth: '25 January 1990',
+    presentAddress: 'San Jose, California, USA',
+    permanentAddress: 'San Jose, California, USA',
+    city: 'San Jose',
+    postalCode: '45962',
+    country: 'USA',
+  },
+];
 let activities = [
   { date: '01/23/2025', deposit: 450, withdraw: 260 },
   { date: '01/22/2025', deposit: 370, withdraw: 400 },
@@ -166,6 +181,26 @@ export function makeServer() {
         return {
           balance,
         };
+      });
+      //POST
+      this.post('/api/members', (_schema, request) => {
+        try {
+          let attrs = JSON.parse(request.requestBody);
+
+          const memberIndex = profile.findIndex(
+            (member) => member.id === attrs.id
+          );
+
+          if (memberIndex !== -1) {
+            profile[memberIndex] = { ...profile[memberIndex], ...attrs };
+            return { profile }; 
+          } else {
+            return new Response(404, {}, { error: 'Member not found' });
+          }
+        } catch (error) {
+          console.error('Error parsing request body:', error);
+          return new Response(400, {}, { error: 'Invalid request body' });
+        }
       });
     },
   });

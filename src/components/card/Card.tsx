@@ -24,7 +24,7 @@ export default function Card({
 }: CardProps) {
   return (
     <div
-    aria-label='Card component'
+      aria-label="Card component"
       className={`${
         isColorWhite
           ? 'bg-white'
@@ -33,7 +33,7 @@ export default function Card({
     >
       <div className="flex justify-between p-6">
         <div className="text-start">
-          <p className="text-[12px] font-[400]">Balance</p>
+          <p className="text-[12px] font-[400]"></p>
           <p className="text-[20px] font-[600]">${balance.toLocaleString()}</p>
         </div>
         {isColorWhite ? (

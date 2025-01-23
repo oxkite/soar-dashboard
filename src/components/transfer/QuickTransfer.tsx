@@ -65,7 +65,7 @@ export default function QuickTransfer() {
 
         <button
           aria-label="Next member"
-          className="rounded-full border border-gray-500 py-4 px-5 border-none shadow-md"
+          className="rounded-full border border-gray-500 py-4 px-5 border-none shadow-md hover:shadow-xl"
           onClick={handleNext}
         >
           <img src={NextButtonImage} />
@@ -81,7 +81,7 @@ export default function QuickTransfer() {
             type="number"
             className="bg-[#EDF1F7] pl-6 text-[#718EBF] focus:outline-none rounded-full w-full"
           />
-          <div className="">
+          <div>
             <button
               aria-label="Send money"
               className="rounded-full border bg-[#232323] hover:bg-[#474747] focus:bg-[#0e0d0d] px-4 py-3 w-[100px] gap-2 text-[16px] font-[500] text-white flex border-none shadow-md"
