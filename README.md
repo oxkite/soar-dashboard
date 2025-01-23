@@ -22,36 +22,44 @@ To set up the application locally, follow these steps:
 
    ```bash
    git clone https://github.com/oxkite/soar-dashboard.git
-   cd dashboard-app
-Install Dependencies
+   cd soar-dashboard
+   ```
+
+2. **Install Dependencies**
 
 Make sure you are in the project directory and run:
 
-Copy
-npm install
-Start the Development Server
+   ```bash
+   npm install
+   ```
+
+3. **Start the Development Server**
 
 To run the application locally, use the following command:
 
-Copy
-npm run dev
+   ```
+   npm run dev
+   ```
+
 This will start the development server, and you can view the application in your browser at http://localhost:5173.
 
-Build for Production
+4. ***Build for Production***
 
 To create a production build of the application, run:
 
-Copy
-npm run build
+   ```
+   npm run build
+   ```
+
 The build output will be in the build directory.
 
-Technologies Used
+## Technologies Used
+
 React: A JavaScript library for building user interfaces.
 TypeScript: A typed superset of JavaScript that compiles to plain JavaScript.
 TailwindCSS: A utility-first CSS framework for creating custom designs.
 Contributing
 
-License
+## License
 This project is licensed under the MIT License.
 
-Copy
