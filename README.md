@@ -41,7 +41,7 @@ You can view the live demo of the application at the following link:
    npm run dev
    ```
 
-This will start the development server, and you can view the application in your browser at http://localhost:5173.
+   This will start the development server, and you can view the application in your browser at http://localhost:5173.
 
 4. ***Build for Production***
 
@@ -61,7 +61,6 @@ TypeScript: A typed superset of JavaScript that compiles to plain JavaScript.
 
 TailwindCSS: A utility-first CSS framework for creating custom designs.
 
-Contributing
 
 ## License
 This project is licensed under the MIT License.
